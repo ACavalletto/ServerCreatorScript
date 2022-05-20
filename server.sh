@@ -2,7 +2,7 @@
 
 echo "Is $(pwd) the current directory?"
 read pwdresponse
-if [ $pwdresponse == "yes" ]; then
+if [ $pwdresponse = "yes" ]; then
     echo "Enter new directory name: "
     read mkdirName1
     mkdir "$mkdirName1"
@@ -13,14 +13,14 @@ if [ $pwdresponse == "yes" ]; then
 fi
 echo "Is EJS needed?"
 read EJSresponse
-if [ $EJSresponse == "yes" ]; then
+if [ $EJSresponse = "yes" ]; then
     mkdir "models"
     mkdir "views"
     cd "models"
     touch "model.js"
     cd ..
     cd "views"
-    until [ $viewFile == "stop" ]; do
+    until [ $viewFile = "stop" ]; do
     echo "Enter view.ejs file names and end with stop"
     read viewFile
     if [ $viewFile != "stop" ]; then
@@ -31,10 +31,10 @@ if [ $EJSresponse == "yes" ]; then
 fi
 echo "Are Partials needed?"
 read partialsResponse
-if [ $partialsResponse == "yes" ]; then
+if [ $partialsResponse = "yes" ]; then
     mkdir "partials"
     cd "partials"
-    until [ $partialsNames == "stop" ]; do
+    until [ $partialsNames = "stop" ]; do
     echo "Enter partials names and end with stop"
     read partialsNames
     if [ $partialsNames != "stop" ]; then
@@ -45,10 +45,10 @@ done
 fi
 echo "Is Public needed?"
 read publicResponse
-if [ $publicResponse == "yes" ]; then
+if [ $publicResponse = "yes" ]; then
     mkdir "public"
     cd "public"
-    until [ $publicNames == "stop" ]; do
+    until [ $publicNames = "stop" ]; do
     echo "Enter public names and end with stop"
     read publicNames
     if [ $publicNames != "stop" ]; then
