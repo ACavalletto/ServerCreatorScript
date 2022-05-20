@@ -27,7 +27,6 @@ if [ $EJSresponse = "yes" ]; then
     touch "$viewFile"
     fi
     done
-    cd ..
 fi
 echo "Are Partials needed?"
 read partialsResponse
@@ -41,6 +40,7 @@ if [ $partialsResponse = "yes" ]; then
         touch "$partialsNames"
     fi
 done
+    cd ..
     cd ..
 fi
 echo "Is Public needed?"
