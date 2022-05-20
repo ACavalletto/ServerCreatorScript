@@ -14,6 +14,7 @@ fi
 echo "Is EJS needed?"
 read EJSresponse
 if [ $EJSresponse = "yes" ]; then
+    npm i ejs
     mkdir "models"
     mkdir "views"
     cd "models"
