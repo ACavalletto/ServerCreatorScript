@@ -1,26 +1,26 @@
 #!/bin/bash
 
-echo "Is $(pwd) the current directory?"
+echo -n "Is $(pwd) the current directory? "
 read pwdresponse
-if [ $pwdresponse = "yes" ]; then
-    echo "Enter new directory name: "
+if [ "$pwdresponse" == "yes" ]; then
+    echo -n "Enter new directory name: "
     read mkdirName1
     mkdir "$mkdirName1"
     cd "$mkdirName1/"
     touch server.js
     git init
     npm i express
-    echo "Setup git remote?"
+    echo -n "Setup git remote? "
     read remoteResponse
-    if [ $remoteResponse = "yes" ]; then
-    echo "Enter new remote origin: "
+    if [ "$remoteResponse" == "yes" ]; then
+    echo -n "Enter new remote origin: "
     read remoteOrigin
     git remote add origin "$remoteOrigin"
     fi
 fi
-echo "Is EJS needed?"
+echo -n "Is EJS needed? "
 read EJSresponse
-if [ $EJSresponse = "yes" ]; then
+if [ "$EJSresponse" == "yes" ]; then
     npm i ejs
     mkdir "models"
     mkdir "views"
@@ -28,46 +28,46 @@ if [ $EJSresponse = "yes" ]; then
     touch "model.js"
     cd ..
     cd "views"
-    until [ $viewFile = "stop" ]; do
-    echo "Enter view.ejs file names and end with stop"
+    until [ "$viewFile" == "stop" ]; do
+    echo -n "Enter view.ejs file names and end with stop. "
     read viewFile
     if [ $viewFile != "stop" ]; then
     touch "$viewFile"
     fi
     done
 fi
-echo "Are Partials needed?"
+echo -n "Are Partials needed? "
 read partialsResponse
-if [ $partialsResponse = "yes" ]; then
+if [ "$partialsResponse" == "yes" ]; then
     mkdir "partials"
     cd "partials"
-    until [ $partialsNames = "stop" ]; do
-    echo "Enter partials names and end with stop"
+    until [ "$partialsNames" == "stop" ]; do
+    echo -n "Enter partials names and end with stop "
     read partialsNames
-    if [ $partialsNames != "stop" ]; then
+    if [ "$partialsNames" != "stop" ]; then
         touch "$partialsNames"
     fi
 done
     cd ..
     cd ..
 fi
-echo "Is Public needed?"
+echo -n "Is Public needed? "
 read publicResponse
-if [ $publicResponse = "yes" ]; then
+if [ "$publicResponse" == "yes" ]; then
     mkdir "public"
     cd "public"
-    until [ $publicNames = "stop" ]; do
-    echo "Enter public names and end with stop"
+    until [ "$publicNames" == "stop" ]; do
+    echo -n "Enter public names and end with stop. "
     read publicNames
-    if [ $publicNames != "stop" ]; then
+    if [ "$publicNames" != "stop" ]; then
         touch "$publicNames"
     fi
 done
     cd ..
 fi
 touch ".gitignore"
-echo "Open new directory in VS Code? "
+echo -n "Open new directory in VS Code? "
 read vsCodeResponse
-if [ $vsCodeResponse = "yes" ]; then
+if [ "$vsCodeResponse" == "yes" ]; then
 code .
 fi
