@@ -59,3 +59,8 @@ done
     cd ..
 fi
 touch ".gitignore"
+echo "Open new directory in VS Code? "
+read vsCodeResponse
+if [ $vsCodeResponse != "yes" ]; then
+code .
+fi
