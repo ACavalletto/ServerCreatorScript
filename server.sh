@@ -10,6 +10,13 @@ if [ $pwdresponse = "yes" ]; then
     touch server.js
     git init
     npm i express
+    echo "Setup git remote?"
+    read remoteResponse
+    if [ $remoteResponse = "yes" ]; then
+    echo "Enter new remote origin: "
+    read remoteOrigin
+    git remote add origin "$remoteOrigin"
+    fi
 fi
 echo "Is EJS needed?"
 read EJSresponse
@@ -61,6 +68,6 @@ fi
 touch ".gitignore"
 echo "Open new directory in VS Code? "
 read vsCodeResponse
-if [ $vsCodeResponse != "yes" ]; then
+if [ $vsCodeResponse = "yes" ]; then
 code .
 fi
