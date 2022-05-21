@@ -1,7 +1,9 @@
 #!/bin/bash
 
-echo -n "Is $(pwd) the current directory? "
+echo -n "Is $(pwd) the correct working directory? "
 read pwdresponse
+# Check with user to make sure we are correct working directory
+
 if [ "$pwdresponse" == "yes" ]; then
     echo -n "Enter new directory name: "
     read mkdirName1
@@ -9,6 +11,7 @@ if [ "$pwdresponse" == "yes" ]; then
     cd "$mkdirName1/"
     touch server.js
     git init
+    npm init
     npm i express
     echo -n "Setup git remote? "
     read remoteResponse
@@ -18,6 +21,8 @@ if [ "$pwdresponse" == "yes" ]; then
     git remote add origin "$remoteOrigin"
     fi
 fi
+# Creates new directory, adds server.js file, inits git and npm, installs express and can setup github remote.
+
 echo -n "Is EJS needed? "
 read EJSresponse
 if [ "$EJSresponse" == "yes" ]; then
@@ -36,6 +41,8 @@ if [ "$EJSresponse" == "yes" ]; then
     fi
     done
 fi
+#creates the basic MVC file structure 
+
 echo -n "Are Partials needed? "
 read partialsResponse
 if [ "$partialsResponse" == "yes" ]; then
@@ -51,6 +58,8 @@ done
     cd ..
     cd ..
 fi
+# adds partials if needed
+
 echo -n "Is Public needed? "
 read publicResponse
 if [ "$publicResponse" == "yes" ]; then
@@ -65,9 +74,12 @@ if [ "$publicResponse" == "yes" ]; then
 done
     cd ..
 fi
+# adds public if needed
+
 touch ".gitignore"
 echo -n "Open new directory in VS Code? "
 read vsCodeResponse
 if [ "$vsCodeResponse" == "yes" ]; then
 code .
 fi
+# opens vs code if wanted
