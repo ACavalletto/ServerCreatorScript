@@ -29,6 +29,7 @@ if [ "$EJSresponse" == "yes" ]; then
     npm i ejs
     mkdir "models"
     mkdir "views"
+    mkdir "controllers"
     cd "models"
     touch "model.js"
     cd ..
